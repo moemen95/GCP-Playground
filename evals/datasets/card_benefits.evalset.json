@@ -1,0 +1,216 @@
+{
+  "eval_set_id": "card_benefits_evalset",
+  "name": "Card Benefits Finder — multi-session eval set",
+  "description": "Multi-turn and single-turn conversations for the card_benefits_finder ADK agent, covering benefit lookups, drill-downs, eligibility, recommendations, and out-of-scope refusals.",
+  "eval_cases": [
+    {
+      "eval_id": "world_benefits_drilldown_then_eligibility",
+      "conversation": [
+        {
+          "invocation_id": "inv-mt-1",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What benefits does the Tangerine World Mastercard have?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "The Tangerine World Mastercard includes Mobile Device Insurance, a Rental Car Collision/Loss Damage Waiver, Travel Medical Emergency Insurance, Purchase Assurance, Extended Warranty, and Boingo Wi-Fi for Mastercard. Want the detailed terms for any of these?"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "lookup_card_benefits",
+                "args": {
+                  "card_name": "Tangerine World Mastercard"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        },
+        {
+          "invocation_id": "inv-mt-2",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Tell me more about the mobile device insurance."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "The Mobile Device Insurance on the Tangerine World Mastercard covers loss, theft, or accidental damage of a new mobile device charged to the card. The limit is up to CAD 1,000 per claim, depreciating over time, with coverage for up to 730 days. To be eligible, the full retail purchase price of the device must be charged to the card. Devices over CAD 1,000, cosmetic damage, and devices on a financing/installment plan not paid in full on the card are excluded."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "get_benefit_details",
+                "args": {
+                  "card_name": "Tangerine World Mastercard",
+                  "benefit_category": "mobile_device_insurance"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        },
+        {
+          "invocation_id": "inv-mt-3",
+          "user_content": {
+            "parts": [
+              {
+                "text": "I'm 30 and make 65,000 a year. Do I qualify for it?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Yes. For the Tangerine World Mastercard the minimum age is 18 and the minimum personal income is CAD 60,000. At age 30 with an annual income of CAD 65,000, you meet the stated minimum age and income requirements."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "check_eligibility",
+                "args": {
+                  "card_name": "Tangerine World Mastercard",
+                  "annual_income": 65000,
+                  "age": 30
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "card_benefits_finder",
+        "user_id": "eval-user-mt",
+        "state": {
+          "preferred_card": "tangerine-world"
+        }
+      }
+    },
+    {
+      "eval_id": "money_back_purchase_protection",
+      "conversation": [
+        {
+          "invocation_id": "inv-pp-1",
+          "user_content": {
+            "parts": [
+              {
+                "text": "If I buy a TV on the Tangerine Money-Back Mastercard and it gets stolen, am I covered?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Yes, the Tangerine Money-Back Mastercard includes Purchase Assurance: new items purchased entirely on the card are covered against theft or damage for 90 days. Coverage is up to the purchase price, with a lifetime maximum of CAD 60,000. Vehicles, perishables, and items lost without evidence of theft are excluded."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "get_benefit_details",
+                "args": {
+                  "card_name": "Tangerine Money-Back Mastercard",
+                  "benefit_category": "purchase_protection"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "card_benefits_finder",
+        "user_id": "eval-user-pp",
+        "state": {
+          "preferred_card": "tangerine-money-back"
+        }
+      }
+    },
+    {
+      "eval_id": "list_then_out_of_scope",
+      "conversation": [
+        {
+          "invocation_id": "inv-ls-1",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What cards can you tell me about?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "I can tell you about two cards: the Tangerine Money-Back Mastercard (standard tier, no annual fee) and the Tangerine World Mastercard (premium tier, no annual fee)."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "name": "list_cards",
+                "args": {}
+              }
+            ],
+            "intermediate_responses": []
+          }
+        },
+        {
+          "invocation_id": "inv-ls-2",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Cool. Now compare these to the Amex Cobalt and tell me which I should get for my situation."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "I'm sorry, I can't help with that. I can only answer questions about the Tangerine Money-Back Mastercard and Tangerine World Mastercard — I don't have information on other issuers' products like the Amex Cobalt, and I can't give personalized recommendations about which card you should get. I'm happy to walk you through the benefits, rewards, fees, or eligibility of the two Tangerine cards."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "card_benefits_finder",
+        "user_id": "eval-user-ls",
+        "state": {}
+      }
+    }
+  ]
+}

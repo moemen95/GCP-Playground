@@ -216,3 +216,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# --- card-benefits-eval-playground ---
+.venv/
+reports/
+eval_pipeline.json
+evals/datasets/synthetic_qa.jsonl

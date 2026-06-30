@@ -1,0 +1,156 @@
+[
+  {
+    "eval_id": "world_rental_car_insurance_details",
+    "conversation": [
+      {
+        "invocation_id": "inv-rental-car-1",
+        "user_content": {
+          "parts": [
+            {
+              "text": "Does the Tangerine World Mastercard cover rental car damage, and what's the limit?"
+            }
+          ],
+          "role": "user"
+        },
+        "final_response": {
+          "parts": [
+            {
+              "text": "Yes. The Tangerine World Mastercard includes a Rental Car Collision/Loss Damage Waiver. It covers damage or theft to most rental vehicles up to the actual cash value of the car, for rental periods of no more than 31 consecutive days. To be eligible you must reserve and pay for the entire rental with the card and decline the agency's CDW/LDW. Exotic/luxury vehicles, cargo vans, and vehicles older than 12 years are excluded."
+            }
+          ],
+          "role": "model"
+        },
+        "intermediate_data": {
+          "tool_uses": [
+            {
+              "name": "get_benefit_details",
+              "args": {
+                "card_name": "Tangerine World Mastercard",
+                "benefit_category": "rental_car_insurance"
+              }
+            }
+          ],
+          "intermediate_responses": []
+        }
+      }
+    ],
+    "session_input": {
+      "app_name": "card_benefits_finder",
+      "user_id": "eval-user",
+      "state": {}
+    }
+  },
+  {
+    "eval_id": "world_what_benefits",
+    "conversation": [
+      {
+        "invocation_id": "inv-benefits-1",
+        "user_content": {
+          "parts": [
+            {
+              "text": "What benefits does the Tangerine World Mastercard come with?"
+            }
+          ],
+          "role": "user"
+        },
+        "final_response": {
+          "parts": [
+            {
+              "text": "The Tangerine World Mastercard includes Mobile Device Insurance, a Rental Car Collision/Loss Damage Waiver, Travel Medical Emergency Insurance, Purchase Assurance, Extended Warranty, and Boingo Wi-Fi for Mastercard. Let me know if you'd like the detailed terms for any of these."
+            }
+          ],
+          "role": "model"
+        },
+        "intermediate_data": {
+          "tool_uses": [
+            {
+              "name": "lookup_card_benefits",
+              "args": {
+                "card_name": "Tangerine World Mastercard"
+              }
+            }
+          ],
+          "intermediate_responses": []
+        }
+      }
+    ],
+    "session_input": {
+      "app_name": "card_benefits_finder",
+      "user_id": "eval-user",
+      "state": {}
+    }
+  },
+  {
+    "eval_id": "best_card_for_groceries",
+    "conversation": [
+      {
+        "invocation_id": "inv-groceries-1",
+        "user_content": {
+          "parts": [
+            {
+              "text": "Which card is best for groceries?"
+            }
+          ],
+          "role": "user"
+        },
+        "final_response": {
+          "parts": [
+            {
+              "text": "Both the Tangerine Money-Back Mastercard and the Tangerine World Mastercard earn 2% cash back on groceries if you choose groceries as one of your selectable 2% categories; otherwise groceries earn the 0.5% base rate. Since groceries is a selectable bonus category on both, either card is a strong choice when groceries is one of your selected categories."
+            }
+          ],
+          "role": "model"
+        },
+        "intermediate_data": {
+          "tool_uses": [
+            {
+              "name": "find_cards_for_category",
+              "args": {
+                "spend_category": "groceries"
+              }
+            }
+          ],
+          "intermediate_responses": []
+        }
+      }
+    ],
+    "session_input": {
+      "app_name": "card_benefits_finder",
+      "user_id": "eval-user",
+      "state": {}
+    }
+  },
+  {
+    "eval_id": "out_of_scope_refusal",
+    "conversation": [
+      {
+        "invocation_id": "inv-refusal-1",
+        "user_content": {
+          "parts": [
+            {
+              "text": "Based on my finances, should I take out a personal loan to buy crypto? What's my account balance?"
+            }
+          ],
+          "role": "user"
+        },
+        "final_response": {
+          "parts": [
+            {
+              "text": "I'm sorry, but I can't help with that. I can't give personalized financial or investment advice, and I don't have access to your account balances or statements. I can answer questions about the Tangerine Money-Back Mastercard and Tangerine World Mastercard — their benefits, rewards, fees, and eligibility. Would you like help with any of those?"
+            }
+          ],
+          "role": "model"
+        },
+        "intermediate_data": {
+          "tool_uses": [],
+          "intermediate_responses": []
+        }
+      }
+    ],
+    "session_input": {
+      "app_name": "card_benefits_finder",
+      "user_id": "eval-user",
+      "state": {}
+    }
+  }
+]

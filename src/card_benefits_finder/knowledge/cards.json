@@ -1,0 +1,189 @@
+{
+  "_note": "FICTIONAL cards and benefit terms for a self-contained demo. Not real Tangerine products. Do not use for real financial decisions.",
+  "schema_version": "1.0",
+  "cards": [
+    {
+      "card_id": "tangerine-money-back",
+      "name": "Tangerine Money-Back Mastercard",
+      "tier": "standard",
+      "network": "Mastercard",
+      "annual_fee": 0.0,
+      "currency": "CAD",
+      "eligibility": {
+        "min_age": 18,
+        "residency": "Canada",
+        "min_annual_income": 0.0,
+        "min_credit_score": 600
+      },
+      "rewards": {
+        "model": "category_cash_back",
+        "base_rate": 0.005,
+        "selectable_categories": [
+          "groceries",
+          "furniture",
+          "restaurants",
+          "hotel-motel",
+          "gas",
+          "recurring-bills",
+          "drug-store",
+          "home-improvement",
+          "entertainment",
+          "public-transportation-parking"
+        ],
+        "selected_category_rate": 0.02,
+        "max_selected_categories": 2,
+        "third_category_rate": 0.02,
+        "third_category_condition": "requires reward money deposited to a Tangerine Savings Account",
+        "redemption": "Paid monthly as cash back applied to the card balance or deposited to a linked Tangerine Savings Account.",
+        "rewards_cap": null
+      },
+      "benefits": [
+        {
+          "benefit_id": "tmb-purchase-assurance",
+          "category": "purchase_protection",
+          "title": "Purchase Assurance",
+          "summary": "New items purchased with the card are covered against theft or damage for 90 days.",
+          "coverage_period_days": 90,
+          "limit": "Up to the purchase price; lifetime maximum CAD 60,000.",
+          "eligibility": "Item must be purchased entirely on the card.",
+          "exclusions": ["Vehicles", "perishables", "items lost without evidence of theft"]
+        },
+        {
+          "benefit_id": "tmb-extended-warranty",
+          "category": "extended_warranty",
+          "title": "Extended Warranty",
+          "summary": "Doubles the original manufacturer's warranty up to one additional year.",
+          "coverage_period_days": 365,
+          "limit": "Up to the original purchase price.",
+          "eligibility": "Item purchased on the card with a valid manufacturer warranty of 5 years or less.",
+          "exclusions": ["Used items", "warranties longer than 5 years"]
+        },
+        {
+          "benefit_id": "tmb-zero-liability",
+          "category": "fraud_protection",
+          "title": "Mastercard Zero Liability",
+          "summary": "You are not held responsible for unauthorized transactions when your account is in good standing.",
+          "coverage_period_days": null,
+          "limit": "Full unauthorized amount.",
+          "eligibility": "Report promptly and exercise reasonable care for card and PIN.",
+          "exclusions": ["Commercial cards in some cases", "anonymous prepaid cards"]
+        }
+      ],
+      "fees": {
+        "annual_fee": 0.0,
+        "purchase_interest_rate": 0.1995,
+        "cash_advance_interest_rate": 0.1995,
+        "foreign_transaction_fee": 0.025,
+        "cash_advance_fee": "CAD 3.50 in Canada, CAD 5.00 abroad",
+        "over_limit_fee": 0.0
+      }
+    },
+    {
+      "card_id": "tangerine-world",
+      "name": "Tangerine World Mastercard",
+      "tier": "premium",
+      "network": "Mastercard",
+      "annual_fee": 0.0,
+      "currency": "CAD",
+      "eligibility": {
+        "min_age": 18,
+        "residency": "Canada",
+        "min_annual_income": 60000.0,
+        "min_household_income": 100000.0,
+        "min_credit_score": 700
+      },
+      "rewards": {
+        "model": "category_cash_back",
+        "base_rate": 0.005,
+        "selectable_categories": [
+          "groceries",
+          "furniture",
+          "restaurants",
+          "hotel-motel",
+          "gas",
+          "recurring-bills",
+          "drug-store",
+          "home-improvement",
+          "entertainment",
+          "public-transportation-parking"
+        ],
+        "selected_category_rate": 0.02,
+        "max_selected_categories": 2,
+        "third_category_rate": 0.02,
+        "third_category_condition": "requires reward money deposited to a Tangerine Savings Account",
+        "redemption": "Paid monthly as cash back applied to the card balance or deposited to a linked Tangerine Savings Account.",
+        "rewards_cap": null
+      },
+      "benefits": [
+        {
+          "benefit_id": "tw-mobile-device-insurance",
+          "category": "mobile_device_insurance",
+          "title": "Mobile Device Insurance",
+          "summary": "Covers loss, theft, or accidental damage of a new mobile device charged to the card.",
+          "coverage_period_days": 730,
+          "limit": "Up to CAD 1,000 per claim, depreciating over time.",
+          "eligibility": "Full retail purchase price of the device must be charged to the card.",
+          "exclusions": ["Devices over CAD 1,000", "cosmetic damage", "devices on a financing/installment plan not paid in full on the card"]
+        },
+        {
+          "benefit_id": "tw-rental-car-cdw",
+          "category": "rental_car_insurance",
+          "title": "Rental Car Collision/Loss Damage Waiver",
+          "summary": "Covers damage or theft to most rental vehicles when you decline the rental agency's collision waiver.",
+          "coverage_period_days": 31,
+          "limit": "Up to the actual cash value of the rental vehicle; rental period must not exceed 31 consecutive days.",
+          "eligibility": "Reserve and pay for the entire rental with the card and decline the agency's CDW/LDW.",
+          "exclusions": ["Exotic/luxury vehicles", "cargo vans", "rentals longer than 31 days", "vehicles older than 12 years"]
+        },
+        {
+          "benefit_id": "tw-travel-medical",
+          "category": "travel_medical_insurance",
+          "title": "Travel Medical Emergency Insurance",
+          "summary": "Emergency medical coverage for the first days of an out-of-province trip.",
+          "coverage_period_days": 15,
+          "limit": "Up to CAD 1,000,000 per insured person for eligible emergency medical expenses.",
+          "eligibility": "Coverage applies for cardholders under age 65 for the first 15 days of a trip.",
+          "exclusions": ["Pre-existing conditions", "trips longer than 15 days", "cardholders 65 and older"]
+        },
+        {
+          "benefit_id": "tw-purchase-assurance",
+          "category": "purchase_protection",
+          "title": "Purchase Assurance",
+          "summary": "New items purchased with the card are covered against theft or damage for 90 days.",
+          "coverage_period_days": 90,
+          "limit": "Up to the purchase price; lifetime maximum CAD 60,000.",
+          "eligibility": "Item must be purchased entirely on the card.",
+          "exclusions": ["Vehicles", "perishables", "items lost without evidence of theft"]
+        },
+        {
+          "benefit_id": "tw-extended-warranty",
+          "category": "extended_warranty",
+          "title": "Extended Warranty",
+          "summary": "Doubles the original manufacturer's warranty up to one additional year.",
+          "coverage_period_days": 365,
+          "limit": "Up to the original purchase price.",
+          "eligibility": "Item purchased on the card with a valid manufacturer warranty of 5 years or less.",
+          "exclusions": ["Used items", "warranties longer than 5 years"]
+        },
+        {
+          "benefit_id": "tw-boingo-wifi",
+          "category": "travel_perk",
+          "title": "Boingo Wi-Fi for Mastercard",
+          "summary": "Unlimited access to a global Wi-Fi network of over 1 million hotspots.",
+          "coverage_period_days": null,
+          "limit": "Unlimited usage across up to 4 devices once enrolled.",
+          "eligibility": "One-time enrollment of the eligible World Mastercard at the Boingo portal.",
+          "exclusions": ["Devices beyond the registered 4"]
+        }
+      ],
+      "fees": {
+        "annual_fee": 0.0,
+        "purchase_interest_rate": 0.1995,
+        "cash_advance_interest_rate": 0.1995,
+        "foreign_transaction_fee": 0.025,
+        "cash_advance_fee": "CAD 3.50 in Canada, CAD 5.00 abroad",
+        "over_limit_fee": 0.0
+      }
+    }
+  ]
+}

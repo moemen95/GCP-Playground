@@ -1,0 +1,105 @@
+{
+  "criteria": {
+    "tool_trajectory_avg_score": {
+      "threshold": 1.0,
+      "match_type": "ANY_ORDER"
+    },
+    "response_match_score": 0.6,
+    "final_response_match_v2": {
+      "threshold": 0.8,
+      "judge_model_options": {
+        "judge_model": "gemini-flash-latest",
+        "num_samples": 5
+      }
+    },
+    "hallucinations_v1": {
+      "threshold": 0.8,
+      "judge_model_options": {
+        "judge_model": "gemini-flash-latest",
+        "num_samples": 5
+      },
+      "evaluate_intermediate_nl_responses": true
+    },
+    "safety_v1": 0.8,
+    "rubric_based_final_response_quality_v1": {
+      "threshold": 0.8,
+      "judge_model_options": {
+        "judge_model": "gemini-flash-latest",
+        "num_samples": 5
+      },
+      "rubrics": [
+        {
+          "rubric_id": "cites_coverage_terms",
+          "rubric_content": {
+            "text_property": "The response cites the benefit's coverage limit and eligibility requirements when describing a specific benefit."
+          }
+        },
+        {
+          "rubric_id": "cites_coverage_window",
+          "rubric_content": {
+            "text_property": "The response states the coverage window or time period (e.g. 90 days, 31 days, 15 days) for any benefit it describes."
+          }
+        },
+        {
+          "rubric_id": "names_the_benefit",
+          "rubric_content": {
+            "text_property": "The response refers to the benefit by its proper name (e.g. Purchase Assurance, Rental Car Collision/Loss Damage Waiver) rather than a vague paraphrase."
+          }
+        },
+        {
+          "rubric_id": "refuses_out_of_scope",
+          "rubric_content": {
+            "text_property": "When the user asks for personalized financial advice, account-specific data, or other issuers' products, the response politely declines and redirects to the two Tangerine cards."
+          }
+        }
+      ]
+    },
+    "rubric_based_tool_use_quality_v1": {
+      "threshold": 0.8,
+      "judge_model_options": {
+        "judge_model": "gemini-flash-latest",
+        "num_samples": 5
+      },
+      "rubrics": [
+        {
+          "rubric_id": "selects_correct_tool",
+          "rubric_content": {
+            "text_property": "The agent selects the tool that matches the user's intent: lookup_card_benefits for 'what benefits', get_benefit_details for a specific benefit, find_cards_for_category for spend recommendations, check_eligibility for qualification, and list_cards for which cards exist."
+          }
+        },
+        {
+          "rubric_id": "passes_grounded_args",
+          "rubric_content": {
+            "text_property": "Tool arguments are drawn from the conversation (correct card_name, benefit_category, spend_category, income, and age) rather than invented."
+          }
+        },
+        {
+          "rubric_id": "no_tool_for_refusals",
+          "rubric_content": {
+            "text_property": "The agent does not call any tool when the request is out of scope and should be refused."
+          }
+        }
+      ]
+    },
+    "my_benefit_citation_score": {
+      "threshold": 0.7
+    }
+  },
+  "custom_metrics": {
+    "my_benefit_citation_score": {
+      "code_config": {
+        "name": "evals.adk.metrics.benefit_citation_score"
+      },
+      "metric_info": {
+        "metric_name": "my_benefit_citation_score",
+        "description": "Rewards final responses that cite concrete benefit terms (coverage limit, eligibility, and coverage window) when describing a card benefit. A domain-specific groundedness proxy for the Tangerine card benefits agent.",
+        "metric_value_info": {
+          "interval": {
+            "min_value": 0.0,
+            "max_value": 1.0
+          }
+        }
+      }
+    }
+  }
+}
